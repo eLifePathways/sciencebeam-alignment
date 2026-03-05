@@ -71,12 +71,10 @@ def report_timing(fn, number=1):
         setup="from __main__ import " + fn,
         number=number
     ) * 1000
-    print("{} ({}x):\n{:f} ms / it ({:f} ms total)\n".format(
-        fn,
-        number,
-        timeit_result_ms / number,
-        timeit_result_ms
-    ))
+    print(
+        f"{fn} ({number}x):\n"
+        + f"{timeit_result_ms / number:.6f} ms / it ({timeit_result_ms:.6f} ms total)\n"
+    )
 
 
 def main():
