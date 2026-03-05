@@ -2,8 +2,9 @@ DOCKER_COMPOSE_DEV = VERSION="$(VERSION)" docker-compose
 DOCKER_COMPOSE_CI = VERSION="$(VERSION)" docker-compose -f docker-compose.yml
 DOCKER_COMPOSE = $(DOCKER_COMPOSE_DEV)
 
-VENV = venv
-PIP = $(VENV)/bin/pip
+VENV = .venv
+UV = VIRTUAL_ENV=$(VENV) uv
+UV_PIP = $(UV) pip
 PYTHON = $(VENV)/bin/python
 
 RUN = $(DOCKER_COMPOSE) run --rm sciencebeam-alignment
@@ -24,14 +25,11 @@ venv-clean:
 
 
 venv-create:
-	python3 -m venv $(VENV)
+	$(UV) venv $(VENV)
 
 
 dev-install:
-	$(PIP) install -r requirements.build.txt
-	$(PIP) install -r requirements.txt
-	$(PIP) install -r requirements.dev.txt
-	$(PIP) install -e . --no-deps
+	$(UV) sync
 
 
 dev-cython-clean:
