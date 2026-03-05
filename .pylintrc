@@ -4,4 +4,5 @@ disable=
     invalid-name,
     no-else-return,
     too-few-public-methods,
-    useless-object-inheritance
+    useless-object-inheritance,
+    too-many-positional-arguments
