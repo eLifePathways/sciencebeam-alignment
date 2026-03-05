@@ -29,6 +29,9 @@ except Exception as e:  # pylint: disable=broad-except
 MIN_INT = -2147483647
 
 
+SCORING_MATRIX_DTYPE = np.int32
+
+
 def get_logger():
     return logging.getLogger(__name__)
 
@@ -325,7 +328,7 @@ class LocalSequenceMatcher(AbstractSequenceMatcher):
     def _computer_alignment_matrix(self):
         m = len(self._a) + 1
         n = len(self._b) + 1
-        scoring_matrix = np.empty((m, n), dtype=int)
+        scoring_matrix = np.empty((m, n), dtype=SCORING_MATRIX_DTYPE)
         scoring_matrix[:, 0] = 0
         scoring_matrix[0, :] = 0
         min_score = 0
@@ -359,7 +362,7 @@ class GlobalSequenceMatcher(AbstractSequenceMatcher):
     def _computer_alignment_matrix(self):
         m = len(self._a) + 1
         n = len(self._b) + 1
-        scoring_matrix = np.empty((m, n), dtype=int)
+        scoring_matrix = np.empty((m, n), dtype=SCORING_MATRIX_DTYPE)
         for i in range(m):
             scoring_matrix[i, 0] = self.scoring.gap_score * i
         for j in range(n):

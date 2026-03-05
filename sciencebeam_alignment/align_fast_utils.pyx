@@ -1,14 +1,14 @@
 from cpython cimport array
 cimport cython
 
-import numpy as np
-cimport numpy as np
+import numpy as pynp
+cimport numpy as cnp
 
 
 DEF MIN_INT = -2147483647
 
 
-ctypedef np.int_t int_t
+ctypedef cnp.int32_t int_t
 ctypedef int_t[:, :] score_matrix_t
 ctypedef bint bool_t
 
