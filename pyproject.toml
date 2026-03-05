@@ -26,8 +26,10 @@ exclude = ["docker*", "multibuild*"]
 
 [dependency-groups]
 dev = [
+    "cython>=3.0",
     "flake8>=7.3.0",
     "pylint>=4.0.5",
     "pytest>=9.0.2",
     "pytest-watch>=4.2.0",
+    "setuptools>=61",
 ]
