@@ -80,8 +80,8 @@ def report_timing(fn, number=1):
 
 
 def main():
-    print("len LONG_STRING1: {}\n".format(len(LONG_STRING1)))
-    print("len LONG_ENCODED1: {}\n".format(len(LONG_ENCODED1)))
+    print(f"len LONG_STRING1: {len(LONG_STRING1)}\n")
+    print(f"len LONG_ENCODED1: {len(LONG_ENCODED1)}\n")
     report_timing("test_align_with_scoring_fn_py")
     report_timing("test_align_with_scoring_fn", 3)
     report_timing("test_align_with_simple_scoring", 3)

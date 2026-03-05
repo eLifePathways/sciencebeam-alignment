@@ -22,7 +22,7 @@ try:
     )
     native_enabled = True
 except Exception as e:  # pylint: disable=broad-except
-    warnings.warn('fast implementation not available due to: %s' % e)
+    warnings.warn(f'fast implementation not available due to: {e}')
     native_enabled = False
 
 
