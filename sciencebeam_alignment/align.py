@@ -228,8 +228,7 @@ def alignment_matrix_traceback(score_matrix, start_locs, is_local, limit):
         )
         if limit:
             paths = islice(paths, limit)
-        for path in paths:
-            yield path
+        yield from paths
 
 
 class SimpleScoring(object):
