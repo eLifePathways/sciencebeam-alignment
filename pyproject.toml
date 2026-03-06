@@ -1,0 +1,35 @@
+[project]
+name = "sciencebeam-alignment"
+version = "0.0.0"
+description = "ScienceBeam Alignment"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "fuzzywuzzy>=0.18.0",
+    "numpy>=2.0.0",
+    "six>=1.17.0",
+]
+
+[build-system]
+requires = [
+  "setuptools>=61",
+  "wheel",
+  "Cython>=3.0",
+  "numpy>=2.2.6",
+]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["sciencebeam_alignment*"]
+exclude = ["docker*", "multibuild*"]
+
+[dependency-groups]
+dev = [
+    "cython>=3.0",
+    "flake8>=7.3.0",
+    "pylint>=3.3.9",
+    "pytest>=8.0.0",
+    "pytest-watch>=4.2.0",
+    "setuptools>=61",
+]

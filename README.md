@@ -2,7 +2,6 @@
 
 ## Overview
 
-
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 ScienceBeam Alignment provides generic low-level sequence alignment utility functions, similar to Python's [SequenceMatcher](https://docs.python.org/3/library/difflib.html).
@@ -11,7 +10,7 @@ This project is currently mainly used for training data generation, related to t
 
 ## Pre-requisites
 
-- Python 2 or 3
+- Python 3
 
 ## API
 

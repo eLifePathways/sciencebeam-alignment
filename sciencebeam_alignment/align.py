@@ -22,11 +22,14 @@ try:
     )
     native_enabled = True
 except Exception as e:  # pylint: disable=broad-except
-    warnings.warn('fast implementation not available due to: %s' % e)
+    warnings.warn(f'fast implementation not available due to: {e}')
     native_enabled = False
 
 
 MIN_INT = -2147483647
+
+
+SCORING_MATRIX_DTYPE = np.int32
 
 
 def get_logger():
@@ -225,8 +228,7 @@ def alignment_matrix_traceback(score_matrix, start_locs, is_local, limit):
         )
         if limit:
             paths = islice(paths, limit)
-        for path in paths:
-            yield path
+        yield from paths
 
 
 class SimpleScoring(object):
@@ -325,7 +327,7 @@ class LocalSequenceMatcher(AbstractSequenceMatcher):
     def _computer_alignment_matrix(self):
         m = len(self._a) + 1
         n = len(self._b) + 1
-        scoring_matrix = np.empty((m, n), dtype=int)
+        scoring_matrix = np.empty((m, n), dtype=SCORING_MATRIX_DTYPE)
         scoring_matrix[:, 0] = 0
         scoring_matrix[0, :] = 0
         min_score = 0
@@ -359,7 +361,7 @@ class GlobalSequenceMatcher(AbstractSequenceMatcher):
     def _computer_alignment_matrix(self):
         m = len(self._a) + 1
         n = len(self._b) + 1
-        scoring_matrix = np.empty((m, n), dtype=int)
+        scoring_matrix = np.empty((m, n), dtype=SCORING_MATRIX_DTYPE)
         for i in range(m):
             scoring_matrix[i, 0] = self.scoring.gap_score * i
         for j in range(n):

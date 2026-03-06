@@ -2,8 +2,7 @@
 disable=
     missing-docstring,
     invalid-name,
-    bad-continuation,
-    no-self-use,
     no-else-return,
     too-few-public-methods,
-    useless-object-inheritance
+    useless-object-inheritance,
+    too-many-positional-arguments
