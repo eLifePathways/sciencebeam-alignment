@@ -11,7 +11,7 @@ This project is currently mainly used for training data generation, related to t
 
 ## Pre-requisites
 
-- Python 2 or 3
+- Python 3
 
 ## API
 
