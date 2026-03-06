@@ -19,6 +19,12 @@ requires = [
 ]
 build-backend = "setuptools.build_meta"
 
+[tool.setuptools.package-data]
+sciencebeam_alignment = ["py.typed"]
+
+[tool.setuptools]
+include-package-data = true
+
 [tool.setuptools.packages.find]
 where = ["."]
 include = ["sciencebeam_alignment*"]
