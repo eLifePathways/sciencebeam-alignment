@@ -4,6 +4,7 @@ cimport cython
 import numpy as pynp
 cimport numpy as cnp
 
+cnp.import_array()
 
 DEF MIN_INT = -2147483647
 
